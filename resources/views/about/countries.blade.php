@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries We Serve | Romania | Skyline</title>
+    <meta name="description"
+        content="Explore overseas career opportunities in Romania with Skyline. Learn about the visa process, work culture, documents checklist, and job roles.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <!-- Mermaid Flowchart Script -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#f1f5f9',
+                primaryTextColor: '#1e293b',
+                primaryBorderColor: '#6366f1',
+                lineColor: '#6366f1',
+                secondaryColor: '#e0e7ff',
+                tertiaryColor: '#fff'
+            }
+        });
+        window.mermaid = mermaid;
+    </script>
+    <style>
+        .page-header {
+            padding: 12rem 0 6rem;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('images/workforce.jpg') center/cover no-repeat;
+            text-align: center;
+            color: white;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: white;
+            font-weight: 800;
+        }
+
+        .page-title span {
+            color: var(--primary-light, #818cf8);
+        }
+
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .country-section {
+            padding: var(--section-pad) 0;
+            background: var(--bg-light);
+        }
+
+        .country-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 3rem 4rem;
+            box-shadow: var(--shadow-xl);
+            margin-bottom: 4rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .country-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .country-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .country-header h2 {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin: 0;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .country-flag-placeholder {
+            width: 60px;
+            height: 40px;
+            background: #f1f5f9;
+            border-radius: 4px;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .country-flag-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .country-info p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .section-highlight {
+            color: var(--secondary);
+            font-size: 2rem;
+            margin: 4rem 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+
+        .section-highlight i {
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 1.5rem;
+        }
+
+        /* Points style for Visa and Documents */
+        .points-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 3rem;
+        }
+
+        .points-list li {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+
+        .points-list li::before {
+            content: "\f00c";
+            /* FontAwesome Check */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #10b981;
+            font-size: 1.25rem;
+            background: rgba(16, 185, 129, 0.1);
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .points-list.visa-points li::before {
+            content: "\f0f2";
+            /* FontAwesome Case */
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .points-list li strong {
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Application Steps */
+        .process-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 3rem;
+        }
+
+        .process-list li {
+            padding: 1.5rem 2rem;
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s ease;
+        }
+
+        .process-list li:hover {
+            background: #f1f5f9;
+        }
+
+        .process-list li strong {
+            color: var(--secondary);
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-list li span {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Flowchart container */
+        .flowchart-container {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow-md);
+            margin: 4rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+
+        /* Document Checklist */
+        /* Removed .doc-checklist grid styles in favor of .points-list */
+        .doc-note {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            color: #92400e;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* Culture Section */
+        .culture-box {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            margin-top: 4rem;
+        }
+
+        .culture-box h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .culture-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        /* Salary Table */
+        .salary-table-wrapper {
+            overflow-x: auto;
+            margin-top: 2rem;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid #e2e8f0;
+        }
+
+        .salary-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .salary-table th {
+            background: var(--bg-light);
+            color: var(--secondary);
+            padding: 1.25rem 2rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .salary-table td {
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .salary-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .salary-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 1.5rem;
+            font-style: italic;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .disclaimer i {
+            margin-top: 3px;
+            color: #94a3b8;
+        }
+
+        /* Countries Sidebar Layout */
+        .countries-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+            align-items: start;
+        }
+
+        .country-sidebar {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 110px;
+        }
+
+        .country-sidebar-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .country-tab {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+            border: 1px solid transparent;
+        }
+
+        .country-tab:hover {
+            background: #f8fafc;
+            border-color: #e2e8f0;
+        }
+
+        .country-tab.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+
+        .country-tab img {
+            width: 32px;
+            height: 22px;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        .country-tab-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .country-tab-name {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .country-tab-topic {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .country-tab.active .country-tab-topic {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .country-content-area {
+            min-height: 800px;
+        }
+
+        @media (max-width: 1024px) {
+            .countries-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .country-sidebar {
+                position: static;
+                display: flex;
+                overflow-x: auto;
+                padding: 1rem;
+                gap: 1rem;
+                white-space: nowrap;
+            }
+
+            .country-tab {
+                margin-bottom: 0;
+                flex: 0 0 auto;
+            }
+
+            .country-sidebar-title {
+                display: none;
+            }
+        }
+
+        .country-details-wrapper {
+            position: relative;
+        }
+
+        .country-card {
+            display: none;
+            /* Hidden by default, toggled via JS */
+        }
+
+        .country-card.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .country-card {
+                padding: 2rem;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .country-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-highlight {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown">
+                    <a href="about.html" class="dropdown-toggle active">About <i
+                            class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html">About SkyLine</a>
+                        <a href="industries.html">Industries</a>
+                        <a href="countries.html" class="active">Countries</a>
+                    </div>
+                </div>
+                <a href="jobs.html">Jobs</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="hire-talent.html" class="btn btn-primary">Request Manpower</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="services.html" class="mobile-link">Services</a>
+                <div class="nav-dropdown">
+                    <span class="mobile-link dropdown-toggle"
+                        onclick="this.parentElement.classList.toggle('active')">About <i
+                            class="fa-solid fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="mobile-link" style="font-size: 1.2rem;">About SkyLine</a>
+                        <a href="industries.html" class="mobile-link" style="font-size: 1.2rem;">Industries</a>
+                        <a href="countries.html" class="mobile-link" style="font-size: 1.2rem;">Countries</a>
+                    </div>
+                </div>
+                <a href="jobs.html" class="mobile-link">Jobs</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <a href="hire-talent.html" class="btn btn-primary mt-4">Request Manpower</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container fade-in-up">
+            <h1 class="page-title">Countries We <span>Serve</span></h1>
+            <p class="page-subtitle">Expanding global opportunities for Nepali professionals.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="country-section">
+        <div class="container">
+
+            <div class="countries-layout">
+
+                <!-- Sidebar -->
+                <aside class="country-sidebar fade-in-up">
+                    <h3 class="country-sidebar-title">
+                        <i class="fa-solid fa-earth-americas"></i> Select Country
+                    </h3>
+                    <div class="country-tab active" onclick="showCountry('romania', this)">
+                        <img src="images/Romania.webp" alt="Romania Flag">
+                        <div class="country-tab-text">
+                            <span class="country-tab-name">Romania</span>
+                            <span class="country-tab-topic">Jobs in Romania</span>
+                        </div>
+                    </div>
+                    <div class="country-tab" onclick="showCountry('malaysia', this)">
+                        <img src="images/Malaysia.png" alt="Malaysia Flag">
+                        <div class="country-tab-text">
+                            <span class="country-tab-name">Malaysia</span>
+                            <span class="country-tab-topic">Jobs in Malaysia</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Content Area -->
+                <main class="country-content-area">
+                    <div class="country-details-wrapper">
+
+                        <!-- Romania Details -->
+                        <div id="romania" class="country-card active fade-in-up">
+
+                            <!-- About Romania -->
+                            <div class="country-header">
+                                <h2>
+                                    <div class="country-flag-placeholder">
+                                        <img src="images/Romania.webp" alt="Romanian Flag">
+                                    </div>
+                                    Romania
+                                </h2>
+                            </div>
+                            <div class="country-info">
+                                <p>Romania is an Eastern European country (EU member since 2007) with its capital at
+                                    Bucharest. It has about 19 million inhabitants and covers 238,398 km².</p>
+                                <p>Its official language is Romanian; the currency is the Romanian leu (RON). Major
+                                    industries include manufacturing (auto, machinery), IT services, construction,
+                                    agriculture, and tourism.</p>
+                            </div>
+
+                            <!-- Visa Section -->
+                            <h3 class="section-highlight"><i class="fa-solid fa-passport"></i> Visa Categories &
+                                Application Process</h3>
+                            <p class="text-muted" style="font-size:1.1rem; margin-bottom:2rem;">Nepali citizens need a
+                                national long‑stay (Type D) visa for employment, often labeled D/Am (work).</p>
+
+                            <ul class="points-list visa-points">
+                                <li>
+                                    <strong>Permanent/Regular worker</strong>
+                                    Employed under an indefinite or fixed-term contract.
+                                </li>
+                                <li>
+                                    <strong>Highly qualified (EU Blue Card)</strong>
+                                    For workers with a university degree hired for highly skilled jobs. This also
+                                    requires a work permit but offers EU-Blue-Card–like status.
+                                </li>
+                                <li>
+                                    <strong>Seasonal worker</strong>
+                                    For work tied to seasonal industries (agriculture, tourism). This visa is tied to a
+                                    fixed-term contract.
+                                </li>
+                                <li>
+                                    <strong>Intra-company posted worker</strong>
+                                    For qualified employees temporarily sent by a foreign-based employer (deployment
+                                    visa).
+                                </li>
+                            </ul>
+                            <p style="margin-bottom:2rem;"><em>Nepalese applicants typically pursue the standard work
+                                    visa (with permit); Blue Card is an option if highly qualified.</em></p>
+
+                            <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--secondary);">Eligibility &
+                                Legal Basis</h4>
+                            <p style="margin-bottom: 2rem; color: var(--text-muted); line-height: 1.6;">All non-EU
+                                citizens need a Romanian work permit before obtaining a work visa. The employer applies
+                                for a work permit at Romania’s General Inspectorate for Immigration (IGI). Requirements
+                                include: having a valid job offer and employment contract, meeting training/experience
+                                conditions, the position not being fillable by EU/EEA locals, and falling under the
+                                annual quota. The work permit rules are set by Law 202/2002 and subsequent regulations.
+                                Once approved, Nepali workers apply for the national work visa at the Romanian
+                                embassy/consulate.</p>
+
+                            <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--secondary);">Fees &
+                                Government Charges</h4>
+                            <p style="margin-bottom: 3rem; color: var(--text-muted); line-height: 1.6;">The employer
+                                pays a work-permit fee of €100 (in RON) for a permanent/high-skilled permit (seasonal:
+                                €25). The visa application fee is €120. Other costs include medical exam fees, document
+                                translations, and travel. (Approximate total cost: visa €120 + medical ~€20 +
+                                translations/apostille ~€50–100, plus airfare.)</p>
+
+                            <h4 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--secondary);">Application
+                                Steps</h4>
+                            <ul class="process-list">
+                                <li>
+                                    <strong>1. Job Search & Offer</strong>
+                                    <span>Nepali applicant secures a job offer from a Romanian employer.</span>
+                                </li>
+                                <li>
+                                    <strong>2. Work Permit</strong>
+                                    <span>Employer submits the permit application (with contract, vacancy notices, etc.)
+                                        to IGI; processed in ~30 days (plus 15-day extension if needed).</span>
+                                </li>
+                                <li>
+                                    <strong>3. Visa Appointment</strong>
+                                    <span>Once permit is issued, applicant applies for the D/Am visa. In Nepal this may
+                                        involve the Romanian embassy in New Delhi or an honorary consulate. Required
+                                        documents are submitted.</span>
+                                </li>
+                                <li>
+                                    <strong>4. Visa Decision</strong>
+                                    <span>The embassy/consulate issues the visa (valid multi-entry for 90 days to pick
+                                        up the residence permit). Processing often takes 30–60 days.</span>
+                                </li>
+                                <li>
+                                    <strong>5. Travel & Registration</strong>
+                                    <span>Worker travels to Romania and applies for a temporary residence/work permit
+                                        (“card”) within 90 days of arrival.</span>
+                                </li>
+                            </ul>
+
+                            <div class="flowchart-container">
+                                <div class="mermaid">
+                                    flowchart LR
+                                    A[Nepali Citizen seeks work] -->|Job offer| B(Romanian Employer)
+                                    B -->|Apply for work permit| C(General Inspectorate for Immigration)
+                                    C -->|Work permit issued| B
+                                    B -->|Send work permit| A
+                                    A -->|Apply for D visa| D(Romanian Embassy/Consulate)
+                                    D -->|Visa granted| A
+                                    A -->|Travel to Romania| E[Obtain Romanian residence permit]
+                                </div>
+                            </div>
+
+                            <!-- Documents Checklist -->
+                            <h3 class="section-highlight"><i class="fa-solid fa-list-check"></i> Documents Checklist
+                            </h3>
+                            <p class="text-muted" style="margin-bottom: 2rem;">To apply, Nepali citizens must prepare
+                                (with Romanian translations and legalization):</p>
+                            <ul class="points-list doc-points">
+                                <li><strong>Passport:</strong> Valid ≥ 3 months beyond stay, plus copies.</li>
+                                <li><strong>Photos:</strong> Two passport-size.</li>
+                                <li><strong>Work Permit:</strong> Copy of IGI-issued work permit or permit approval
+                                    letter.</li>
+                                <li><strong>Employment Contract/Offer:</strong> Signed job contract.</li>
+                                <li><strong>Criminal Record:</strong> Police clearance certificate from Nepal
+                                    (apostilled by Nepali authorities, translated).</li>
+                                <li><strong>Medical Certificate:</strong> A health certificate showing fitness/no
+                                    contagious diseases (must be legalized/translated).</li>
+                                <li><strong>Medical Insurance:</strong> Proof of travel/health insurance valid in
+                                    Romania for visa duration.</li>
+                                <li><strong>Proof of Funds:</strong> In practice, employers often provide proof of
+                                    sufficient salary (≥ Romania’s minimum wage).</li>
+                                <li><strong>Accommodation:</strong> Address in Romania (hotel booking or
+                                    company-provided lodging).</li>
+                                <li><strong>Qualifications:</strong> Degrees or certificates (apostilled and translated)
+                                    if job requires (especially for professionals).</li>
+                                <li><strong>Filled Visa Form:</strong> National visa application form (embassy website).
+                                </li>
+                            </ul>
+                            <div class="doc-note">
+                                <strong>Note:</strong> All foreign documents must typically be legalized with an
+                                Apostille (Nepal is party to the Hague Convention) and translated into Romanian (or
+                                English) by an authorized translator.
+                            </div>
+
+                            <!-- Culture -->
+                            <div class="culture-box">
+                                <h3><i class="fa-solid fa-comments"></i> Romanian Work Culture</h3>
+                                <p>Romanian work culture combines professionalism with a friendly and approachable
+                                    environment. The official language is Romanian, but English is widely used in
+                                    sectors like IT, finance, and multinational companies, while blue-collar jobs mostly
+                                    require Romanian.</p>
+                                <p>Nepali workers should be respectful, punctual, and reliable, as these qualities are
+                                    highly appreciated. Learning basic Romanian phrases can help in daily interactions.
+                                    It is also important to understand labor laws, as employees usually get at least 20
+                                    days of annual leave and standard worker rights are protected.</p>
+                            </div>
+
+                            <!-- Job Summary -->
+                            <h3 class="section-highlight"><i class="fa-solid fa-chart-line"></i> Job Summary</h3>
+                            <div class="salary-table-wrapper">
+                                <table class="salary-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Industry</th>
+                                            <th>Role</th>
+                                            <th>Estimated Salary Range (RON)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Healthcare</td>
+                                            <td>Registered Nurse</td>
+                                            <td>11,000 – 19,200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Healthcare</td>
+                                            <td>Medical Doctor</td>
+                                            <td>35,500 – 68,000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Logistics/Transport</td>
+                                            <td>Heavy Truck Driver</td>
+                                            <td>11,800 – 19,400</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Manufacturing/Technical</td>
+                                            <td>Welder / Technician</td>
+                                            <td>11,900 – 19,600</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Security Services</td>
+                                            <td>Security Guard</td>
+                                            <td>8,500 – 13,500</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="disclaimer">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span><strong>Note:</strong> Salaries are approximate and can differ depending on
+                                    factors such as experience, location in Romania, and the employer. In many cases,
+                                    lower salary packages may also include benefits like accommodation and
+                                    transportation support.</span>
+                            </div>
+
+                        </div> <!-- /#romania -->
+
+                        <!-- Malaysia Details -->
+                        <div id="malaysia" class="country-card fade-in-up">
+
+                            <div class="country-header">
+                                <h2>
+                                    <div class="country-flag-placeholder">
+                                        <img src="images/Malaysia.png" alt="Malaysian Flag">
+                                    </div>
+                                    Malaysia
+                                </h2>
+                            </div>
+                            <div class="country-info">
+                                <p>Malaysia is a vibrant Southeast Asian country with its capital at Kuala Lumpur. It
+                                    has a population of about 34 million and is known for its diverse multiracial
+                                    culture and strong economy.</p>
+                                <p>The official language is Malay (Bahasa Malaysia), but English is widely spoken in
+                                    business and daily life. Key industries include manufacturing (electronics,
+                                    semiconductors), agriculture (palm oil, rubber), construction, and services.</p>
+                            </div>
+
+                            <!-- Visa Section -->
+                            <h3 class="section-highlight"><i class="fa-solid fa-passport"></i> Visa Categories &
+                                Application Process</h3>
+                            <p class="text-muted" style="font-size:1.1rem; margin-bottom:2rem;">Nepali citizens
+                                primarily enter Malaysia under the Pas Lawatan Kerja Sementara (PLKS) or Temporary
+                                Employment Visit Pass.</p>
+
+                            <ul class="points-list visa-points">
+                                <li>
+                                    <strong>Manufacturing Sector</strong>
+                                    Work in electronics, textiles, and assembly plants. Requires specialized focus on
+                                    precision and safety.
+                                </li>
+                                <li>
+                                    <strong>Construction Sector</strong>
+                                    For large-scale infrastructure projects, high-rise buildings, and developmental
+                                    works.
+                                </li>
+                                <li>
+                                    <strong>Plantation & Agriculture</strong>
+                                    Work in palm oil and rubber estates, focusing on harvesting and maintenance.
+                                </li>
+                                <li>
+                                    <strong>Service Industry</strong>
+                                    Includes cleaning services, hospitality, and logistics support.
+                                </li>
+                                <li>
+                                    <strong>Security Services</strong>
+                                    For qualified Nepalese security personnel (often ex-army or police) at corporate
+                                    facilities and residential areas.
+                                </li>
+                            </ul>
+                            <p style="margin-bottom:2rem;"><em>Most Nepali workers come through the standard PLKS
+                                    category with an employer-sponsored Calling Visa (VDR).</em></p>
+
+                            <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--secondary);">Eligibility &
+                                Legal Basis</h4>
+                            <p style="margin-bottom: 2rem; color: var(--text-muted); line-height: 1.6;">Nepali
+                                candidates must be between 18 and 45 years old (age limits can vary by sector). The
+                                recruitment process is governed by the bilateral labor agreement between Nepal and
+                                Malaysia. Employers must obtain a "Quota Approval" from the Malaysian Ministry of Human
+                                Resources before recruiting. Every worker must undergo a security clearance (ISC) and a
+                                medical examination at a Malaysia-approved health center in Nepal. Once all clearances
+                                are set, the Malaysian Immigration Department issues a Visa With Reference (VDR).</p>
+
+                            <h4 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--secondary);">Fees &
+                                Government Charges</h4>
+                            <p style="margin-bottom: 3rem; color: var(--text-muted); line-height: 1.6;">The Malaysian
+                                government implements a "Employer Pays" policy for recruitment fees for certain
+                                categories, though medical and ISC fees in Nepal are initially paid by the candidate
+                                (often reimbursed). The Visa With Reference (VDR) stamping fee at the Malaysian Embassy
+                                in Kathmandu is approximately NPR 7,000–9,000. Levy charges are typically borne by the
+                                employer annually.</p>
+
+                            <h4 style="font-size: 1.25rem; margin-bottom: 1.5rem; color: var(--secondary);">Application
+                                Steps</h4>
+                            <ul class="process-list">
+                                <li>
+                                    <strong>1. Selection & Interview</strong>
+                                    <span>Candidates are selected by employers through interviews or document review in
+                                        Nepal.</span>
+                                </li>
+                                <li>
+                                    <strong>2. ISC & Medical Examination</strong>
+                                    <span>Candidates undergo Integrated Security Clearance (ISC) and a thorough medical
+                                        check-up at approved clinics.</span>
+                                </li>
+                                <li>
+                                    <strong>3. Calling Visa (VDR)</strong>
+                                    <span>Employer applies for the VDR in Malaysia. Once issued, it is sent to the
+                                        recruitment agency in Nepal.</span>
+                                </li>
+                                <li>
+                                    <strong>4. Visa Stamping</strong>
+                                    <span>The passport is submitted to the Malaysian Embassy in Kathmandu for the entry
+                                        visa (VDR Stamping).</span>
+                                </li>
+                                <li>
+                                    <strong>5. Pre-Departure & Travel</strong>
+                                    <span>Workers attend a mandatory pre-departure briefing and then travel to Malaysia
+                                        to join their employer.</span>
+                                </li>
+                            </ul>
+
+                            <div class="flowchart-container">
+                                <div class="mermaid">
+                                    flowchart LR
+                                    A["Nepali Candidate"] -->|"Medical and ISC"| B("Recruitment Selection")
+                                    B -->|"VDR Application"| C("Malaysian Immigration")
+                                    C -->|"VDR Issued"| D("Malaysian Embassy Kathmandu")
+                                    D -->|"Visa Stamped"| E["Work in Malaysia"]
+                                    E -->|"Arrival and Entry"| F["Final Medical check and PLKS issuance"]
+                                </div>
+                            </div>
+
+                            <!-- Documents Checklist -->
+                            <h3 class="section-highlight"><i class="fa-solid fa-list-check"></i> Documents Checklist
+                            </h3>
+                            <p class="text-muted" style="margin-bottom: 2rem;">Ensure the following documents are ready
+                                for your Malaysia work application:</p>
+                            <ul class="points-list doc-points">
+                                <li><strong>Passport:</strong> Original passport with at least 12 months validity.</li>
+                                <li><strong>Photos:</strong> 6 to 10 copies of professional photos with a white
+                                    background.</li>
+                                <li><strong>Medical Report:</strong> Fitness certificate from FOMEMA-accredited centers.
+                                </li>
+                                <li><strong>ISC Certificate:</strong> Security clearance report.</li>
+                                <li><strong>Employment Contract:</strong> Signed and stamped Malaysian employment
+                                    contract.</li>
+                                <li><strong>Citizenship Certificate:</strong> Copy of Nepali citizenship (Nagrita).</li>
+                                <li><strong>Approval Letters:</strong> Copies of Department of Foreign Employment (DOFE)
+                                    approvals.</li>
+                            </ul>
+
+                            <!-- Culture -->
+                            <div class="culture-box"
+                                style="background: linear-gradient(135deg, #0f172a 0%, #334155 100%);">
+                                <h3><i class="fa-solid fa-comments"></i> Malaysian Work Culture</h3>
+                                <p>Malaysia is a multicultural society where respect for diverse religions and customs
+                                    is paramount. The workplace is often hierarchical, and "saving face" or maintaining
+                                    harmony is very important in interactions.</p>
+                                <p>English and Malay are primary communication tools. Nepali workers are highly
+                                    respected for their hard work and discipline, especially in security and
+                                    manufacturing. Standard office hours are usually 48 hours per week with overtime
+                                    opportunities depending on the sector.</p>
+                            </div>
+
+                            <!-- Job Summary -->
+                            <h3 class="section-highlight"><i class="fa-solid fa-chart-line"></i> Job Summary</h3>
+                            <div class="salary-table-wrapper">
+                                <table class="salary-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Industry</th>
+                                            <th>Role</th>
+                                            <th>Estimated Salary Range (MYR)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Manufacturing</td>
+                                            <td>Factory Worker / Operator</td>
+                                            <td>1,500 – 2,500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Construction</td>
+                                            <td>General Worker / Mason</td>
+                                            <td>1,800 – 3,200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Security</td>
+                                            <td>Nepali Security Guard</td>
+                                            <td>1,900 – 2,800</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Plantation</td>
+                                            <td>Estate Worker</td>
+                                            <td>1,500 – 2,200</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Services</td>
+                                            <td>Cleaner / General Helper</td>
+                                            <td>1,500 – 1,900</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="disclaimer">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span><strong>Note:</strong> Salaries are based on the minimum wage regulations and
+                                    sector-specific agreements. Overtime and allowances can significantly increase the
+                                    take-home pay.</span>
+                            </div>
+
+                        </div> <!-- /#malaysia -->
+
+                    </div> <!-- /.country-details-wrapper -->
+                </main>
+            </div> <!-- /.countries-layout -->
+
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+                    </a>
+                    <p class="footer-desc">
+                        Nepal's leading overseas recruitment agency, connecting highly skilled professional and
+                        technical workers with top employers across the globe.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="industries.html">Industries</a></li>
+                        <li><a href="countries.html">Countries</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>For Candidates</h4>
+                    <ul class="footer-links">
+                        <li><a href="jobs.html">Browse Jobs</a></li>
+                        <li><a href="#">Submit CV</a></li>
+                        <li><a href="#">Visa Guidelines</a></li>
+                        <li><a href="#">Pre-departure Briefing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Gongabu, Kathmandu, Nepal</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+977 1 4350000 / 4350001</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>info@skylinemanpower.com.np</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skyline Manpower. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script>
+        // Use Intersection Observer for fade-in animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+            // Initial Mermaid run for Romania (active by default)
+            setTimeout(() => {
+                if (window.mermaid) {
+                    window.mermaid.run({
+                        querySelector: '#romania .mermaid'
+                    });
+                }
+            }, 500);
+        });
+
+        // Country switcher logic
+        function showCountry(countryId, element) {
+            // Update active state in selector
+            document.querySelectorAll('.country-tab').forEach(tab => tab.classList.remove('active'));
+            element.classList.add('active');
+
+            // Toggle country cards
+            document.querySelectorAll('.country-card').forEach(card => card.classList.remove('active'));
+            const selectedCard = document.getElementById(countryId);
+            selectedCard.classList.add('active');
+
+            // Update page title if needed
+            const countryName = countryId.charAt(0).toUpperCase() + countryId.slice(1);
+            document.querySelector('.page-title span').innerText = countryName === 'Romania' || countryName === 'Malaysia' ? 'Serve' : countryName;
+
+            // Re-render Mermaid if needed
+            if (window.mermaid) {
+                // We need to ensure the element is visible before running
+                setTimeout(() => {
+                    window.mermaid.run({
+                        querySelector: `#${countryId} .mermaid`
+                    });
+                }, 50);
+            }
+
+            // Scroll to the top of the detail section for better UX on mobile
+            const wrapper = document.querySelector('.country-details-wrapper');
+            window.scrollTo({
+                top: wrapper.offsetTop - 120,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>

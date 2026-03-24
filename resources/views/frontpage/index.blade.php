@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline | Premier Overseas Manpower Agency Nepal</title>
+    <meta name="description"
+        content="Skyline connects highly skilled and dedicated Nepali workers with top employers in Qatar, Malaysia, UAE, and Saudi Arabia. Trusted overseas recruitment agency based in Kathmandu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <style>
+        /* Override hero background — controlled by JS slideshow */
+        .hero {
+            background-image: none !important;
+            transition: background-image 0.8s ease-in-out;
+        }
+
+        /* =============================================
+           GLOBAL PARTNERS SECTION
+           ============================================= */
+        .partners-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #f8fafd 0%, #ffffff 100%);
+        }
+
+        .partners-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .partner-tab {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border: 2px solid #e2e8f0;
+            border-radius: 60px;
+            background: #fff;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-tab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--tab-color, #3b82f6), var(--tab-color-end, #60a5fa));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 60px;
+        }
+
+        .partner-tab:hover {
+            border-color: var(--tab-color, #3b82f6);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .partner-tab.active {
+            background: linear-gradient(135deg, var(--tab-color, #3b82f6), var(--tab-color-end, #60a5fa)) !important;
+            border-color: transparent;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35);
+            /* Fallback for color-mix if needed */
+        }
+
+        .partner-tab.active::before {
+            opacity: 1;
+        }
+
+        .partner-tab i,
+        .partner-tab span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .partner-tab i {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-tab.active i {
+            transform: scale(1.1);
+        }
+
+        .partners-logo-area {
+            margin-top: 48px;
+            min-height: 280px;
+            position: relative;
+        }
+
+        .partners-category-panel {
+            display: none;
+            animation: categoryReveal 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .partners-category-panel.active {
+            display: block;
+        }
+
+        @keyframes categoryReveal {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .partners-category-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .category-subtitle {
+            font-size: 15px;
+            color: #94a3b8;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .partners-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .partner-logo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 28px 20px 22px;
+            background: #fff;
+            border: 1.5px solid #e8edf6;
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-logo-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--card-accent, #3b82f6), var(--card-accent-end, #60a5fa));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .partner-logo-card:hover {
+            border-color: color-mix(in srgb, var(--card-accent, #3b82f6) 40%, transparent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .partner-logo-card:hover::after {
+            opacity: 1;
+        }
+
+        .partner-logo-placeholder {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-logo-card:hover .partner-logo-placeholder {
+            transform: scale(1.08);
+        }
+
+        .partner-card-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            text-align: center;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .partner-card-type {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #94a3b8;
+            text-align: center;
+            margin: 0;
+        }
+
+        @media (max-width: 640px) {
+            .partners-tabs {
+                gap: 8px;
+            }
+
+            .partner-tab {
+                padding: 10px 18px;
+                font-size: 13px;
+            }
+
+            .partner-tab i {
+                font-size: 15px;
+            }
+
+            .partners-logos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .partner-logo-card {
+                padding: 20px 12px 16px;
+            }
+
+            .partner-logo-placeholder {
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        /* =============================================
+           COMPANY STORY SECTION
+           ============================================= */
+        .story-section {
+            padding: 110px 0;
+            background: #0d1b3e;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -120px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.06);
+            pointer-events: none;
+        }
+
+        .story-section::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: rgba(99, 179, 237, 0.04);
+            pointer-events: none;
+        }
+
+        .story-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .story-layout {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .story-image-col {
+                order: -1;
+            }
+        }
+
+        .story-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #63b3ed;
+            margin-bottom: 20px;
+        }
+
+        .story-label::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #63b3ed;
+            border-radius: 2px;
+        }
+
+        .story-headline {
+            font-size: clamp(28px, 3.5vw, 44px);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            letter-spacing: -0.8px;
+            margin: 0 0 28px;
+        }
+
+        .story-headline em {
+            font-style: normal;
+            color: #63b3ed;
+        }
+
+        .story-body {
+            font-size: 16px;
+            line-height: 1.85;
+            color: rgba(255, 255, 255, 0.68);
+            margin: 0 0 16px;
+        }
+
+        .story-body strong {
+            color: rgba(255, 255, 255, 0.92);
+            font-weight: 600;
+        }
+
+        .story-image-col {
+            position: relative;
+        }
+
+        .story-img-frame {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4/4;
+        }
+
+        .story-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.82) saturate(0.9);
+        }
+
+        .story-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, transparent 50%, rgba(13, 27, 62, 0.75) 100%);
+        }
+
+        .story-img-badge {
+            position: absolute;
+            bottom: 28px;
+            left: 28px;
+            right: 28px;
+            background: rgba(13, 27, 62, 0.82);
+            border: 1px solid rgba(99, 179, 237, 0.25);
+            border-radius: 14px;
+            padding: 18px 20px;
+            backdrop-filter: blur(6px);
+        }
+
+        .sib-quote {
+            font-size: 14px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.55;
+            margin: 0 0 10px;
+        }
+
+        .sib-author {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #63b3ed;
+            margin: 0;
+        }
+
+        .story-dots {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 120px;
+            height: 120px;
+            background-image: radial-gradient(circle, rgba(99, 179, 237, 0.3) 1.5px, transparent 1.5px);
+            background-size: 16px 16px;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body class="home-page">
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-users-gear"></i> Skyline
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown">
+                    <a href="about.html" class="dropdown-toggle">About <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html">About SkyLine</a>
+                        <a href="industries.html">Industries</a>
+                        <a href="countries.html">Countries</a>
+                    </div>
+                </div>
+                <a href="jobs.html">Jobs</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="hire-talent.html" class="btn btn-primary">Hire Now</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="services.html" class="mobile-link">Services</a>
+                <div class="nav-dropdown">
+                    <span class="mobile-link dropdown-toggle"
+                        onclick="this.parentElement.classList.toggle('active')">About <i
+                            class="fa-solid fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="mobile-link" style="font-size: 1.2rem;">About SkyLine</a>
+                        <a href="industries.html" class="mobile-link" style="font-size: 1.2rem;">Industries</a>
+                        <a href="countries.html" class="mobile-link" style="font-size: 1.2rem;">Countries</a>
+                    </div>
+                </div>
+                <a href="jobs.html" class="mobile-link">Jobs</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <a href="hire-talent.html" class="btn btn-primary mt-4">Hire Now</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         HERO SECTION — Full Background Image with White Overlay
+         ============================================================ -->
+    <section class="hero-wrapper" id="hero-wrapper">
+        <div class="hero" id="home">
+            <div class="hero-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.45);z-index:1;"></div>
+            <div id="particles-js" class="particles-container"></div>
+
+            <div class="container hero-container">
+                <div class="hero-content">
+
+                    <h1 class="hero-title">
+                        Connecting Nepal's Best<br>with <span>Global Opportunities</span>
+                    </h1>
+
+                    <!-- <p class="hero-subtitle">
+                    Based in Kathmandu, we are a leading overseas manpower agency specializing in
+                    deploying dedicated Nepali professionals and workers to Qatar, Malaysia, UAE, and Saudi Arabia.
+                </p> -->
+
+                    <!-- Search Bar -->
+                    <div class="hero-search">
+                        <form action="jobs.html" method="GET" class="search-form" id="heroSearchForm">
+                            <div class="search-input-group">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" name="job_title" placeholder="Job title or keyword" required>
+                            </div>
+                            <div class="search-divider"></div>
+                            <div class="search-input-group">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <select name="industry">
+                                    <option value="">Any Industry</option>
+                                    <option value="construction">Construction</option>
+                                    <option value="hospitality">Hospitality</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="oil_gas">Oil & Gas</option>
+                                    <option value="security">Security</option>
+                                </select>
+                            </div>
+                            <div class="search-divider"></div>
+                            <div class="search-input-group">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <select name="country">
+                                    <option value="">Any Country</option>
+                                    <option value="qatar">Qatar</option>
+                                    <option value="malaysia">Malaysia</option>
+                                    <option value="uae">UAE</option>
+                                    <option value="saudi">Saudi Arabia</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary search-btn">Search Jobs</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats for Scroll Animation -->
+        <div class="hero-scrolled-stats">
+            <div class="stats-left">
+                <div class="stat-glass-card stat-left-tilt">
+                    <div class="sgc-bg" style="background-image: url('{{ asset('images/airport.jpg') }}');"></div>
+                    <div class="sgc-content">
+                        <i class="fa-solid fa-earth-americas sgc-icon"></i>
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Major Destinations<br>(QA, MY, AE, SA)</span>
+                    </div>
+                </div>
+                <div class="stat-glass-card stat-left-tilt delay-card">
+                    <div class="sgc-bg" style="background-image: url('{{ asset('images/workforce.jpg') }}');"></div>
+                    <div class="sgc-content">
+                        <i class="fa-solid fa-shield-halved sgc-icon"></i>
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Ethical Hiring</span>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-right">
+                <div class="stat-glass-card stat-right-tilt stat-card-large">
+                    <div class="sgc-bg" style="background-image: url('{{ asset('images/workforce.jpg') }}');"></div>
+                    <div class="sgc-content">
+                        <i class="fa-solid fa-users sgc-icon"></i>
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Deployments</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container about-container">
+            <div class="about-image-wrapper fade-in-up">
+                <img src="{{ asset('images/workforce.jpg') }}" alt="Skyline Recruitment Team" class="about-img" id="about-img">
+                <div class="about-experience">
+                    <span class="exp-number">10+</span>
+                    <span class="exp-text">Years in<br>Recruitment</span>
+                </div>
+            </div>
+            <div class="about-content fade-in-up delay-200">
+                <!-- <div class="badge">Why Choose Nepali Workers</div> -->
+                <h2 class="section-title">Dedicated Workforce for <span>Your Projects</span></h2>
+                <p class="about-text">At Skyline, based in the heart of Kathmandu, we are committed to bridging the gap
+                    between hardworking talent in Nepal and major employers in Qatar, Malaysia, UAE, and Saudi Arabia.
+                    We ensure ethical recruitment practices and unparalleled service quality.</p>
+                <ul class="about-features">
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Government certified and ethically compliant agency</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Extensive database of medically fit, trade-tested workers</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Fast-tracked mobilization and transparent processing</span>
+                    </li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary mt-4">About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story Section -->
+    <section class="story-section" id="our-story">
+        <div class="container">
+            <div class="story-layout">
+                <div class="story-text-col fade-in-up">
+                    <span class="story-label">Our Story</span>
+                    <h2 class="story-headline">
+                        Born from the mountains,<br>built for <em>the world.</em>
+                    </h2>
+                    <p class="story-body">
+                        It started with a single question: why do the most hardworking people in South Asia have
+                        to navigate a broken, exploitative system just to find <strong>honest</strong> work abroad?
+                    </p>
+                    <p class="story-body">
+                        Skyline was founded in Kathmandu — not as a staffing firm, but as a <strong>bridge</strong>. A
+                        bridge built on the belief that every Nepali worker deserves a safe passage, a fair wage, and a
+                        future they can be proud of. From the tea hills of Ilam to the steel sites of Doha, we carry
+                        that mission with every deployment.
+                    </p>
+                </div>
+                <div class="story-image-col fade-in-up delay-200">
+                    <div class="story-dots"></div>
+                    <div class="story-img-frame">
+                        <img src="{{ asset('images/airport.jpg') }}" alt="Skyline team at Kathmandu office">
+                        <div class="story-img-overlay"></div>
+                        <div class="story-img-badge">
+                            <p class="sib-quote">"Every passport we process is someone's dream departing Tribhuvan. We
+                                take that seriously."</p>
+                            <p class="sib-author">— Founding Team, Skyline</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners JS -->
+    <script>
+        var categoryData = {
+            it: {
+                label: 'Information Technology',
+                subtitle: 'Technology partners across software, networking, and IT services',
+                accent: '#6366f1',
+                accentEnd: '#818cf8',
+                partners: [
+                    { initials: 'TS', name: 'TechSphere Solutions', type: 'Software Dev', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'NW', name: 'NetWave Systems', type: 'Networking', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'CD', name: 'CloudDrive Inc.', type: 'Cloud Services', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'DX', name: 'DataX Analytics', type: 'Data & AI', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'CW', name: 'CodeWorks Ltd.', type: 'IT Staffing', bg: '#eef2ff', fg: '#6366f1' },
+                    { initials: 'SG', name: 'SmartGrid Tech', type: 'IoT Solutions', bg: '#eef2ff', fg: '#6366f1' }
+                ]
+            },
+            construction: {
+                label: 'Construction',
+                subtitle: 'Leading construction and infrastructure companies across the Gulf region',
+                accent: '#f59e0b',
+                accentEnd: '#fbbf24',
+                partners: [
+                    { initials: 'QB', name: 'Qataria Builders', type: 'Civil Works', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'AB', name: 'Al Balagh Contracting', type: 'Infrastructure', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'HB', name: 'HBK Contracting', type: 'Oil & Gas', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'SB', name: 'Saudi BinLadin Group', type: 'Mega Projects', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'NM', name: 'NEOM Project Partners', type: 'Construction', bg: '#fffbeb', fg: '#d97706' },
+                    { initials: 'IJ', name: 'IJM Corporation', type: 'Infrastructure', bg: '#fffbeb', fg: '#d97706' }
+                ]
+            },
+            health: {
+                label: 'Healthcare',
+                subtitle: 'Trusted hospital groups and healthcare organizations worldwide',
+                accent: '#10b981',
+                accentEnd: '#34d399',
+                partners: [
+                    { initials: 'MH', name: 'MedHorizon Group', type: 'Hospital Chain', bg: '#ecfdf5', fg: '#059669' },
+                    { initials: 'GH', name: 'Gulf Health Services', type: 'Healthcare', bg: '#ecfdf5', fg: '#059669' },
+                    { initials: 'AC', name: 'AsiaCare Medical', type: 'Clinics', bg: '#ecfdf5', fg: '#059669' },
+                    { initials: 'PH', name: 'PrimeCare Hospitals', type: 'Hospitals', bg: '#ecfdf5', fg: '#059669' },
+                    { initials: 'WH', name: 'WellLife Health', type: 'Senior Care', bg: '#ecfdf5', fg: '#059669' }
+                ]
+            },
+            others: {
+                label: 'Other Industries',
+                subtitle: 'Hospitality, security, logistics, manufacturing & more',
+                accent: '#ec4899',
+                accentEnd: '#f472b6',
+                partners: [
+                    { initials: 'OH', name: 'Oasis Hotels & Resorts', type: 'Hospitality', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'G4', name: 'G4S Secure Solutions', type: 'Security', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'TG', name: 'Top Glove Corp.', type: 'Manufacturing', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'WP', name: 'Westports Malaysia', type: 'Logistics', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'EF', name: 'Emaar Facilities', type: 'Facility Mgmt.', bg: '#fdf2f8', fg: '#db2777' },
+                    { initials: 'TG2', name: 'Transguard Group', type: 'Security', bg: '#fdf2f8', fg: '#db2777' }
+                ]
+            }
+        };
+
+        function selectCategory(key) {
+            document.querySelectorAll('.partner-tab').forEach(function (el) {
+                el.classList.toggle('active', el.dataset.category === key);
+            });
+            var d = categoryData[key];
+            var cards = d.partners.map(function (p) {
+                return '<div class="partner-logo-card" style="--card-accent:' + d.accent + '; --card-accent-end:' + d.accentEnd + '">' +
+                    '<div class="partner-logo-placeholder" style="background:' + p.bg + ';color:' + p.fg + '">' + p.initials + '</div>' +
+                    '<p class="partner-card-name">' + p.name + '</p>' +
+                    '<p class="partner-card-type">' + p.type + '</p>' +
+                    '</div>';
+            }).join('');
+            document.getElementById('partnersLogoArea').innerHTML =
+                '<div class="partners-category-panel active">' +
+                '<div class="partners-category-header">' +
+                '<p class="category-subtitle">' + d.subtitle + '</p>' +
+                '</div>' +
+                '<div class="partners-logos-grid">' + cards + '</div>' +
+                '</div>';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            selectCategory('construction');
+        });
+    </script>
+
+    <!-- Job Roles Section -->
+    <section class="job-roles section-padding" id="job-roles">
+        <div class="pattern-bg"></div>
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <div class="badge badge-accent">Career Paths</div>
+                <h2 class="section-title">Explore Our <span>Job Specialties</span></h2>
+                <p class="section-subtitle">We recruit qualified talent for a wide range of industries and specialized
+                    roles across the Gulf and beyond.</p>
+            </div>
+
+            <div class="roles-carousel-container">
+                <button class="carousel-nav-btn prev-btn" id="rolesPrev"><i
+                        class="fa-solid fa-chevron-left"></i></button>
+                <div class="roles-carousel-wrapper">
+                    <div class="roles-slider" id="rolesSlider">
+                        <div class="job-role-card">
+                            <div class="role-card-inner" style="--role-color: #3b82f6;">
+                                <div class="role-image-box">
+                                    <img src="{{ asset('images/construction.jpg') }}" alt="Construction Jobs" class="role-img">
+                                </div>
+                                <div class="role-card-content">
+                                    <h3 class="role-name">Construction</h3>
+                                    <ul class="role-list">
+                                        <li>Masons & Plasterers</li>
+                                        <li>Carpenters & Steel Fixers</li>
+                                        <li>Electricians & Plumbers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-role-card">
+                            <div class="role-card-inner" style="--role-color: #f59e0b;">
+                                <div class="role-image-box">
+                                    <img src="{{ asset('images/hospitality.jpg') }}" alt="Hospitality Jobs" class="role-img">
+                                </div>
+                                <div class="role-card-content">
+                                    <h3 class="role-name">Hospitality</h3>
+                                    <ul class="role-list">
+                                        <li>Waiters & Waitresses</li>
+                                        <li>Commis & Executive Chefs</li>
+                                        <li>Housekeeping Staff</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-role-card">
+                            <div class="role-card-inner" style="--role-color: #ef4444;">
+                                <div class="role-image-box">
+                                    <img src="{{ asset('images/security.jpg') }}" alt="Security Jobs" class="role-img">
+                                </div>
+                                <div class="role-card-content">
+                                    <h3 class="role-name">Security Services</h3>
+                                    <ul class="role-list">
+                                        <li>SIRA Certified Guards</li>
+                                        <li>Security Supervisors</li>
+                                        <li>CCTV Operators</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-role-card">
+                            <div class="role-card-inner" style="--role-color: #10b981;">
+                                <div class="role-image-box">
+                                    <img src="{{ asset('images/logisistic.jpg') }}" alt="Logistics Jobs" class="role-img">
+                                </div>
+                                <div class="role-card-content">
+                                    <h3 class="role-name">Logistics</h3>
+                                    <ul class="role-list">
+                                        <li>Heavy & Light Drivers</li>
+                                        <li>Forklift Operators</li>
+                                        <li>Warehouse Staff</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-role-card">
+                            <div class="role-card-inner" style="--role-color: #8b5cf6;">
+                                <div class="role-image-box">
+                                    <img src="{{ asset('images/hospital.jpg') }}" alt="Healthcare Jobs" class="role-img">
+                                </div>
+                                <div class="role-card-content">
+                                    <h3 class="role-name">Healthcare</h3>
+                                    <ul class="role-list">
+                                        <li>Registered Nurses</li>
+                                        <li>Medical Assistants</li>
+                                        <li>Lab Technicians</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-role-card">
+                            <div class="role-card-inner" style="--role-color: #ec4899;">
+                                <div class="role-image-box">
+                                    <img src="{{ asset('images/technician.jpg') }}" alt="Maintenance Jobs" class="role-img">
+                                </div>
+                                <div class="role-card-content">
+                                    <h3 class="role-name">Maintenance</h3>
+                                    <ul class="role-list">
+                                        <li>HVAC Technicians</li>
+                                        <li>MEP Supervisors</li>
+                                        <li>General Handymen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="job-role-card">
+                            <div class="role-card-inner" style="--role-color: #6366f1;">
+                                <div class="role-image-box">
+                                    <img src="{{ asset('images/office.jpg') }}" alt="Office Jobs" class="role-img">
+                                </div>
+                                <div class="role-card-content">
+                                    <h3 class="role-name">Office Admin</h3>
+                                    <ul class="role-list">
+                                        <li>Data Entry Operators</li>
+                                        <li>Office Assistants</li>
+                                        <li>Customer Service</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-nav-btn next-btn" id="rolesNext"><i
+                        class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <div class="text-center mt-12 fade-in-up">
+                <p class="mb-4 text-muted">Don't see your industry? We handle specialized requests too.</p>
+                <a href="contact.html" class="btn btn-outline-primary">Inquire About Roles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Overview Stats Section -->
+    <section class="company-stats" id="company-stats">
+        <div class="stats-bg-overlay"></div>
+        <div class="container">
+            <div class="stats-header text-center">
+                <div class="badge badge-accent">Our Reach</div>
+                <h2 class="section-title" style="color: var(--white);">Trusted Across <span>The Globe</span></h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Numbers that speak to our commitment
+                    and global impact.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-users"></i></div>
+                    <span class="stat-count" data-target="5000">0</span><span class="stat-suffix">+</span>
+                    <p class="stat-card-label">Workers Deployed</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-globe"></i></div>
+                    <span class="stat-count" data-target="12">0</span><span class="stat-suffix">+</span>
+                    <p class="stat-card-label">Countries Served</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <span class="stat-count" data-target="100">0</span><span class="stat-suffix">%</span>
+                    <p class="stat-card-label">Government Certified</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-icon"><i class="fa-solid fa-handshake"></i></div>
+                    <span class="stat-count" data-target="200">0</span><span class="stat-suffix">+</span>
+                    <p class="stat-card-label">Partner Companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Partners by Industry -->
+    <section class="partners-section bg-light section-padding" id="partners">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <div class="badge">Our Network</div>
+                <h2 class="section-title">Global Partners <span>by Industry</span></h2>
+                <p class="section-subtitle">We work with leading companies across multiple industries — delivering
+                    skilled,
+                    pre-vetted talent for every sector.</p>
+            </div>
+            <div class="partners-tabs fade-in-up delay-100">
+                <button class="partner-tab active" data-category="construction"
+                    style="--tab-color:#f59e0b; --tab-color-end:#fbbf24;" onclick="selectCategory('construction')">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                    <span>Construction</span>
+                </button>
+                <button class="partner-tab" data-category="it" style="--tab-color:#6366f1; --tab-color-end:#818cf8;"
+                    onclick="selectCategory('it')">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <span>IT</span>
+                </button>
+                <button class="partner-tab" data-category="health" style="--tab-color:#10b981; --tab-color-end:#34d399;"
+                    onclick="selectCategory('health')">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Health</span>
+                </button>
+                <button class="partner-tab" data-category="others" style="--tab-color:#ec4899; --tab-color-end:#f472b6;"
+                    onclick="selectCategory('others')">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>Others</span>
+                </button>
+            </div>
+            <div class="partners-logo-area fade-in-up delay-200" id="partnersLogoArea"></div>
+            <div style="margin-top:32px;text-align:center;" class="fade-in-up delay-200">
+                <a href="contact.html" class="btn btn-primary">Become a Partner Employer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news section-padding" id="news">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title">Latest <span>Updates</span></h2>
+                <p class="section-subtitle">Stay informed with our recent announcements and company news.</p>
+            </div>
+            <div class="news-container fade-in-up delay-100">
+                <div class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="{{ asset('images/workers.jpg') }}" alt="Dubai Office Opening" class="news-img">
+                        <div class="news-date">
+                            <span class="day">15</span>
+                            <span class="month">Mar</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">New Office Opening in Dubai</h3>
+                        <p class="news-excerpt">We are excited to announce the expansion of our operations with a new
+                            branch office in Dubai, UAE to better serve our clients and candidates in the region.</p>
+                        <a href="#" class="news-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="{{ asset('images/news_bg_map.jpg') }}" alt="Recruitment Award" class="news-img">
+                        <div class="news-date">
+                            <span class="day">02</span>
+                            <span class="month">Feb</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Award for Excellence in Recruitment</h3>
+                        <p class="news-excerpt">Skyline has been recognized by the Ministry of Labor for outstanding
+                            ethical recruitment practices and transparency in the year 2025.</p>
+                        <a href="#" class="news-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="{{ asset('images/construction.jpg') }}" alt="Malaysia Resumes Intake" class="news-img">
+                        <div class="news-date">
+                            <span class="day">18</span>
+                            <span class="month">Jan</span>
+                        </div>
+                    </div>
+                    <div class="news-content">
+                        <h3 class="news-title">Malaysia Resumes Intake of Nepali Workers</h3>
+                        <p class="news-excerpt">Following the recent bilateral agreement, the Malaysian government has
+                            officially resumed the hiring process for Nepali talent across various sectors.</p>
+                        <a href="#" class="news-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 fade-in-up delay-200">
+                <a href="#" class="btn btn-secondary">View All News</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-padding bg-light" id="testimonials">
+        <div class="container">
+            <div class="section-header text-center fade-in-up">
+                <h2 class="section-title">Client <span>Testimonials</span></h2>
+                <p class="section-subtitle">Hear what our global partners have to say about our manpower solutions.</p>
+            </div>
+            <div class="testimonial-carousel-container fade-in-up delay-100">
+                <div class="testimonial-carousel" id="testimonialCarousel">
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">Skyline has been instrumental in supplying skilled construction
+                                workers for our mega-projects in Qatar. Their pre-screening and trade-testing processes
+                                are top-notch, saving us significant time and resources.</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Ahmed Al-Thani</h4>
+                                    <p>HR Director, Qataria Builders (Qatar)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">The level of professionalism and efficiency shown by Skyline in
+                                handling mass recruitments for our hospitality chain in the UAE is impressive. Highly
+                                recommended partner for ethical hiring.</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Sarah Jenkins</h4>
+                                    <p>Operations Manager, Oasis Hotels (UAE)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-left quote-icon"></i>
+                            <p class="testimonial-text">We needed a quick mobilization of 500 semi-skilled workers for
+                                our manufacturing plant in Malaysia. Skyline delivered on time, with fully compliant and
+                                medically fit candidates.</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4>Lim Wei Chen</h4>
+                                    <p>Procurement Head, Horizon Tech (Malaysia)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev-btn" id="prevTestimonial"><i
+                            class="fa-solid fa-arrow-left"></i></button>
+                    <div class="carousel-dots" id="carouselDots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button class="carousel-btn next-btn" id="nextTestimonial"><i
+                            class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box fade-in-up">
+                <div class="cta-content">
+                    <h2 class="cta-title">Need reliable manpower for an upcoming project?</h2>
+                    <p class="cta-text">Join hundreds of companies across the Gulf and Malaysia that trust Skyline.
+                        Let's discuss your manpower demand today.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="hire-talent.html" class="btn btn-primary btn-large bg-white text-primary">Submit Demand
+                        Letter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+                    </a>
+                    <p class="footer-desc">Govt. Approved Overseas Manpower Agency in Nepal sending skilled workforce to
+                        Qatar, Malaysia, UAE, and Saudi Arabia.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Overseas Recruitment</a></li>
+                        <li><a href="services.html">Visa Processing</a></li>
+                        <li><a href="services.html">Trade Testing</a></li>
+                        <li><a href="services.html">Deployment</a></li>
+                        <li><a href="hire-talent.html">Submit Demand</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Licenses</a></li>
+                        <li><a href="jobs.html">Current Openings</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>Baneshwor, Kathmandu<br>Bagmati Province, Nepal</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>+977-1-4XXXXXX</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                    data-cfemail="355c5b535a75465e4c595c5b5058545b455a4250471b565a581b5b45">[email&#160;protected]</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skyline Overseas Manpower Pvt. Ltd. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hero Background Slideshow -->
+    <script>
+        (function () {
+            var images = [
+                "{{ asset('images/herosection3.jpg') }}",
+                "{{ asset('images/herosection2.jpg') }}",
+                "{{ asset('images/herosection1.jpg') }}",
+                "{{ asset('images/airport.jpg') }}"
+            ];
+
+            var current = 0;
+            var hero = document.getElementById('home');
+
+            // Create two layers for smooth crossfade
+            var layerA = document.createElement('div');
+            var layerB = document.createElement('div');
+
+            var baseStyle = [
+                'position:absolute', 'inset:0', 'background-size:cover',
+                'background-position:center', 'background-repeat:no-repeat',
+                'transition:opacity 1s ease-in-out', 'z-index:0'
+            ].join(';');
+
+            layerA.setAttribute('style', baseStyle + ';opacity:1');
+            layerB.setAttribute('style', baseStyle + ';opacity:0');
+
+            layerA.style.backgroundImage = 'url("' + images[0] + '")';
+            layerB.style.backgroundImage = 'url("' + images[1] + '")';
+
+            hero.insertBefore(layerB, hero.firstChild);
+            hero.insertBefore(layerA, hero.firstChild);
+
+            var activeLayer = layerA;
+            var inactiveLayer = layerB;
+
+            setInterval(function () {
+                current = (current + 1) % images.length;
+                var next = (current + 1) % images.length;
+
+                inactiveLayer.style.backgroundImage = 'url("' + images[current] + '")';
+
+                activeLayer.style.opacity = '0';
+                inactiveLayer.style.opacity = '1';
+
+                setTimeout(function () {
+                    activeLayer.style.backgroundImage = 'url("' + images[next] + '")';
+                    var tmp = activeLayer;
+                    activeLayer = inactiveLayer;
+                    inactiveLayer = tmp;
+                }, 1100);
+
+            }, 10000);
+        })();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+</body>
+
+</html>

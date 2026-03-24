@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Skyline</title>
+    <meta name="description"
+        content="Comprehensive overseas manpower solutions, from candidate sourcing and trade testing to final deployment.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <style>
+        .page-header {
+            padding: 10rem 0 5rem;
+            background: linear-gradient(135deg, var(--bg-light), var(--bg-main));
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-detail {
+            padding: var(--section-pad) 0;
+        }
+
+        .service-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .service-block:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-block:nth-child(even) .service-content {
+            direction: ltr;
+        }
+
+        .service-image {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        .service-content h3 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .service-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .service-features {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+        }
+
+        .service-features i {
+            color: var(--primary);
+        }
+
+        @media (max-width: 900px) {
+
+            .service-block,
+            .service-block:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 2rem;
+                margin-bottom: 4rem;
+            }
+
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================================================
+           REDESIGNED MANPOWER PROCESS SECTION
+        ================================================ */
+        .process-section {
+            padding: var(--section-pad) 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .process-section::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(67, 56, 202, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .process-section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .process-section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .process-section-header h2 span {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .process-section-header p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ---- Timeline Layout ---- */
+        .process-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .timeline-spine {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom,
+                    rgba(67, 56, 202, 0) 0%,
+                    rgba(67, 56, 202, 0.2) 10%,
+                    rgba(67, 56, 202, 0.2) 90%,
+                    rgba(67, 56, 202, 0) 100%);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        /* ---- Individual Step ---- */
+        .proc-step {
+            display: grid;
+            grid-template-columns: 1fr 80px 1fr;
+            align-items: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .proc-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .proc-step .slot-left {
+            padding-right: 3rem;
+            text-align: right;
+            transform-origin: right center;
+        }
+
+        .proc-step .slot-right {
+            padding-left: 3rem;
+            text-align: left;
+            transform-origin: left center;
+        }
+
+        /* Center node */
+        .proc-node-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .proc-node {
+            width: 64px;
+            height: 64px;
+            background: var(--white);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: 0 0 0 8px rgba(67, 56, 202, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2;
+        }
+
+        .proc-step:hover .proc-node {
+            transform: scale(1.1);
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 0 0 12px rgba(67, 56, 202, 0.1), var(--shadow-lg);
+        }
+
+        /* ---- Step Card ---- */
+        .step-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .proc-step:hover .step-card {
+            background: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(67, 56, 202, 0.1);
+            border-color: rgba(67, 56, 202, 0.2);
+        }
+
+        .step-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            display: inline-block;
+            background: rgba(67, 56, 202, 0.05);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .step-detail {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Final step uses accent color */
+        .is-final .proc-node {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 0 8px rgba(14, 165, 233, 0.05);
+        }
+
+        .is-final:hover .proc-node {
+            background: var(--accent);
+            box-shadow: 0 0 0 12px rgba(14, 165, 233, 0.1), var(--shadow-lg);
+        }
+
+        .is-final .step-tag {
+            color: var(--accent);
+            background: rgba(14, 165, 233, 0.05);
+        }
+
+        /* Connector Ticks */
+        .slot-left .step-card::after,
+        .slot-right .step-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 32px;
+            height: 2px;
+            background: rgba(67, 56, 202, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .slot-left .step-card::after {
+            right: -32px;
+        }
+
+        .slot-right .step-card::after {
+            left: -32px;
+        }
+
+        .proc-step:hover .step-card::after {
+            background: var(--primary);
+            width: 40px;
+        }
+
+        .proc-step:hover .slot-left .step-card::after {
+            right: -40px;
+        }
+
+        .proc-step:hover .slot-right .step-card::after {
+            left: -40px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .timeline-spine {
+                left: 32px;
+            }
+
+            .proc-step {
+                grid-template-columns: 64px 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .slot-empty {
+                display: none;
+            }
+
+            .proc-step .slot-left,
+            .proc-step .slot-right {
+                grid-column: 2;
+                padding: 0;
+                text-align: left;
+            }
+
+            .slot-left .step-card::after,
+            .slot-right .step-card::after {
+                left: -2rem;
+                width: 2rem;
+                right: auto;
+            }
+
+            .proc-step:hover .slot-left .step-card::after {
+                left: -2.5rem;
+                width: 2.5rem;
+            }
+
+            .process-section-header h2 {
+                font-size: 2.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <div class="nav-dropdown">
+                    <a href="about.html" class="dropdown-toggle">About <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="about.html">About SkyLine</a>
+                        <a href="industries.html">Industries</a>
+                        <a href="countries.html">Countries</a>
+                    </div>
+                </div>
+                <a href="jobs.html">Jobs</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="hire-talent.html" class="btn btn-primary">Request Manpower</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="close-menu-btn" id="close-menu-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="services.html" class="mobile-link">Services</a>
+                <div class="nav-dropdown">
+                    <span class="mobile-link dropdown-toggle"
+                        onclick="this.parentElement.classList.toggle('active')">About <i
+                            class="fa-solid fa-chevron-down"></i></span>
+                    <div class="dropdown-menu">
+                        <a href="about.html" class="mobile-link" style="font-size: 1.2rem;">About SkyLine</a>
+                        <a href="industries.html" class="mobile-link" style="font-size: 1.2rem;">Industries</a>
+                        <a href="countries.html" class="mobile-link" style="font-size: 1.2rem;">Countries</a>
+                    </div>
+                </div>
+                <a href="jobs.html" class="mobile-link">Jobs</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <a href="hire-talent.html" class="btn btn-primary mt-4">Request Manpower</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container fade-in-up">
+            <h1 class="page-title">Overseas Manpower <span>Services</span></h1>
+            <p class="page-subtitle">End-to-end recruitment solutions from Nepal to Qatar, Malaysia, UAE, and KSA.</p>
+        </div>
+    </section>
+
+    <!-- Services Detail Section -->
+    <section class="services-detail">
+        <div class="container">
+
+            <!-- Service 1 -->
+            <div class="service-block fade-in-up">
+                <div class="service-image-wrapper">
+                    <div
+                        style="width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: var(--radius-lg); opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="badge">Sourcing & Screening</div>
+                    <h3>Overseas Recruitment</h3>
+                    <p>We supply skilled, semi-skilled, and unskilled Nepali professionals across diverse industries
+                        such as Construction, Hospitality, Oil & Gas, Security, and Manufacturing.</p>
+                    <p>Our expansive database and robust sourcing network reaching remote areas of Nepal ensure we find
+                        hardworking candidates that match your specific demands.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Bulk Hiring Campaigns</li>
+                        <li><i class="fa-solid fa-check"></i> Advertising & Outreach</li>
+                        <li><i class="fa-solid fa-check"></i> Initial Screening</li>
+                        <li><i class="fa-solid fa-check"></i> Candidate Shortlisting</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-block fade-in-up">
+                <div class="service-image-wrapper">
+                    <div
+                        style="width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--secondary-light), var(--secondary)); border-radius: var(--radius-lg); opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="badge">Documentation</div>
+                    <h3>Visa & Processing Assistance</h3>
+                    <p>Navigating the complex bureaucratic processes in Nepal is our specialty. We handle obtaining
+                        approvals from the Department of Foreign Employment (DOFE).</p>
+                    <p>We ensure all document attestations, visa stamping, and labor approvals are processed in record
+                        time to meet your deployment schedule.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Embassy Attestations</li>
+                        <li><i class="fa-solid fa-check"></i> DOFE Labor Clearances</li>
+                        <li><i class="fa-solid fa-check"></i> Contract Signing</li>
+                        <li><i class="fa-solid fa-check"></i> Police Clearances</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-block fade-in-up">
+                <div class="service-image-wrapper">
+                    <div
+                        style="width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--primary-light), var(--accent)); border-radius: var(--radius-lg); opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="badge">Preparation</div>
+                    <h3>Medicals & Trade Testing</h3>
+                    <p>Quality and health are paramount. All short-listed candidates undergo strict medical examinations
+                        at GAMCA or other government-approved diagnostic centers.</p>
+                    <p>For skilled categories (welders, carpenters, drivers, etc.), we facilitate rigorous practical
+                        trade tests in affiliated certified technical institutes before final selection.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Pre-Employment Medicals</li>
+                        <li><i class="fa-solid fa-check"></i> Institute Trade Testing</li>
+                        <li><i class="fa-solid fa-check"></i> Pre-Departure Orientation</li>
+                        <li><i class="fa-solid fa-check"></i> Cultural Briefing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-block fade-in-up">
+                <div class="service-image-wrapper">
+                    <div
+                        style="width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, var(--accent), var(--primary)); border-radius: var(--radius-lg); opacity: 0.8;">
+                    </div>
+                </div>
+                <div class="service-content">
+                    <div class="badge">Mobilization</div>
+                    <h3>Deployment & Logistical Support</h3>
+                    <p>Our commitment doesn't end at selection. We manage the entire mobilization process to ensure
+                        workers arrive at your site on schedule and ready to work.</p>
+                    <p>From flight bookings and airport assistance in Kathmandu to coordinating group departures and
+                        overseas reception, we handle all the logistical details.</p>
+                    <ul class="service-features">
+                        <li><i class="fa-solid fa-check"></i> Flight & Travel Arrangements</li>
+                        <li><i class="fa-solid fa-check"></i> Airport Assistance & Drop-off</li>
+                        <li><i class="fa-solid fa-check"></i> Group Mobilization</li>
+                        <li><i class="fa-solid fa-check"></i> Overseas Onboarding Support</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================================================
+         REDESIGNED MANPOWER PROCESS SECTION
+    ================================================ -->
+    <section class="process-section">
+
+        <div class="container">
+
+            <div class="process-section-header fade-in-up">
+                <h2 class="section-title">Our Manpower <span>Process</span></h2>
+                <p class="section-subtitle">A streamlined, 10-step recruitment journey ensuring quality, compliance, and
+                    on-time deployment.</p>
+            </div>
+
+            <div class="process-timeline fade-in-up">
+                <div class="timeline-spine"></div>
+
+                <!-- Step 1 — LEFT -->
+                <div class="proc-step">
+                    <div class="slot-left">
+                        <div class="step-card">
+                            <span class="step-tag">Initiation</span>
+                            <p class="step-title">Demand Letter from Foreign Employer</p>
+                            <p class="step-detail">The overseas employer issues an official demand letter specifying job
+                                categories, quantities, salaries, and deployment terms.</p>
+                        </div>
+                    </div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-file-invoice"></i></div>
+                    </div>
+                    <div class="slot-empty"></div>
+                </div>
+
+                <!-- Step 2 — RIGHT -->
+                <div class="proc-step">
+                    <div class="slot-empty"></div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-stamp"></i></div>
+                    </div>
+                    <div class="slot-right">
+                        <div class="step-card">
+                            <span class="step-tag">Compliance</span>
+                            <p class="step-title">Government Pre-Approval</p>
+                            <p class="step-detail">Skyline submits the demand to DOFE (Dept. of Foreign Employment) and
+                                obtains official pre-approval before any recruitment begins.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 — LEFT -->
+                <div class="proc-step">
+                    <div class="slot-left">
+                        <div class="step-card">
+                            <span class="step-tag">Outreach</span>
+                            <p class="step-title">Job Advertisement</p>
+                            <p class="step-detail">Vacancy campaigns are published via national newspapers, digital
+                                platforms, radio, and our extensive rural outreach network across Nepal.</p>
+                        </div>
+                    </div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-bullhorn"></i></div>
+                    </div>
+                    <div class="slot-empty"></div>
+                </div>
+
+                <!-- Step 4 — RIGHT -->
+                <div class="proc-step">
+                    <div class="slot-empty"></div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-user-check"></i></div>
+                    </div>
+                    <div class="slot-right">
+                        <div class="step-card">
+                            <span class="step-tag">Selection</span>
+                            <p class="step-title">Application &amp; Screening</p>
+                            <p class="step-detail">Candidates apply and our team shortlists based on qualifications,
+                                prior experience, and suitability against the employer's requirements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 — LEFT -->
+                <div class="proc-step">
+                    <div class="slot-left">
+                        <div class="step-card">
+                            <span class="step-tag">Assessment</span>
+                            <p class="step-title">Interview &amp; Trade Test</p>
+                            <p class="step-detail">An employer panel or appointed proxy conducts interviews. Skilled
+                                roles (welders, drivers, carpenters) undergo live practical trade testing at certified
+                                institutes.</p>
+                        </div>
+                    </div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-tools"></i></div>
+                    </div>
+                    <div class="slot-empty"></div>
+                </div>
+
+                <!-- Step 6 — RIGHT -->
+                <div class="proc-step">
+                    <div class="slot-empty"></div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-file-medical"></i></div>
+                    </div>
+                    <div class="slot-right">
+                        <div class="step-card">
+                            <span class="step-tag">Health</span>
+                            <p class="step-title">Medical Check-Up</p>
+                            <p class="step-detail">All selected candidates undergo pre-employment medical examinations
+                                at GAMCA-approved or other government-certified diagnostic centers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 7 — LEFT -->
+                <div class="proc-step">
+                    <div class="slot-left">
+                        <div class="step-card">
+                            <span class="step-tag">Documentation</span>
+                            <p class="step-title">Visa Processing</p>
+                            <p class="step-detail">Skyline coordinates embassy stamping, contract attestation, police
+                                clearances, and work visa issuance for every selected candidate.</p>
+                        </div>
+                    </div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-passport"></i></div>
+                    </div>
+                    <div class="slot-empty"></div>
+                </div>
+
+                <!-- Step 8 — RIGHT -->
+                <div class="proc-step">
+                    <div class="slot-empty"></div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    </div>
+                    <div class="slot-right">
+                        <div class="step-card">
+                            <span class="step-tag">Preparation</span>
+                            <p class="step-title">Orientation Training</p>
+                            <p class="step-detail">A mandatory pre-departure session covers destination country culture,
+                                worker rights and duties, workplace safety, and emergency procedures.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 9 — LEFT -->
+                <div class="proc-step">
+                    <div class="slot-left">
+                        <div class="step-card">
+                            <span class="step-tag">Finalisation</span>
+                            <p class="step-title">Final Approval &amp; Documentation</p>
+                            <p class="step-detail">DOFE labour clearance, insurance certificates, and departure permits
+                                are issued and cross-verified before travel arrangements are confirmed.</p>
+                        </div>
+                    </div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-clipboard-check"></i></div>
+                    </div>
+                    <div class="slot-empty"></div>
+                </div>
+
+                <!-- Step 10 — RIGHT (final, accented) -->
+                <div class="proc-step is-final">
+                    <div class="slot-empty"></div>
+                    <div class="proc-node-wrap">
+                        <div class="proc-node"><i class="fa-solid fa-plane-departure"></i></div>
+                    </div>
+                    <div class="slot-right">
+                        <div class="step-card">
+                            <span class="step-tag">Deployment</span>
+                            <p class="step-title">Departure &amp; Deployment</p>
+                            <p class="step-detail">Candidates depart for their destination country — fully documented,
+                                medically cleared, and prepared for a successful overseas placement.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.process-timeline -->
+        </div><!-- /.container -->
+    </section>
+    <!-- ================================================
+         END PROCESS SECTION
+    ================================================ -->
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box fade-in-up">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to submit a demand?</h2>
+                    <p class="cta-text">Contact our specialist team to discuss your project requirements and receive a
+                        customized recruitment plan.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="hire-talent.html" class="btn btn-primary btn-large bg-white text-primary">Request
+                        Manpower</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fa-solid fa-users-gear"></i> Sky<span>line</span>
+                    </a>
+                    <p class="footer-desc">Govt. Approved Overseas Manpower Agency in Nepal sending skilled workforce to
+                        Qatar, Malaysia, UAE, and Saudi Arabia.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Overseas Recruitment</a></li>
+                        <li><a href="services.html">Visa Processing</a></li>
+                        <li><a href="services.html">Trade Testing</a></li>
+                        <li><a href="services.html">Deployment</a></li>
+                        <li><a href="hire-talent.html">Submit Demand</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Our Licenses</a></li>
+                        <li><a href="jobs.html">Current Openings</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-location-dot"></i><span>Baneshwor, Kathmandu<br>Nepal</span></li>
+                        <li><i class="fa-solid fa-phone"></i><span>+977-1-4XXXXXX</span></li>
+                        <li><i class="fa-solid fa-envelope"></i><span><a href="/cdn-cgi/l/email-protection"
+                                    class="__cf_email__"
+                                    data-cfemail="264f4840496648435e52474a4348520845494b084856">[email&#160;protected]</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skyline Overseas Manpower Pvt. Ltd. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial visibility pass
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in-up').forEach(el => {
+                    if (el.getBoundingClientRect().top < window.innerHeight) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 100);
+
+            // Scroll-based reveals
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+            // Staggered step reveals on process timeline
+            const steps = document.querySelectorAll('.proc-step');
+            const stepObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const idx = Array.from(steps).indexOf(entry.target);
+                        entry.target.style.opacity = '0';
+                        entry.target.style.transform = 'translateY(18px)';
+                        entry.target.style.transition = `opacity 0.45s ease ${idx * 60}ms, transform 0.45s ease ${idx * 60}ms`;
+                        requestAnimationFrame(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        });
+                        stepObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            steps.forEach(step => {
+                step.style.opacity = '0';
+                stepObserver.observe(step);
+            });
+        });
+    </script>
+</body>
+
+</html>
